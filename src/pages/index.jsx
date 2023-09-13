@@ -6,6 +6,8 @@ export default function Home() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
+  const imgPath = "http://image.tmdb.org/t/p/w500"
+
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, error, isLoading } = useSWR(
@@ -30,3 +32,5 @@ export default function Home() {
 }
 
 // https://api.themoviedb.org/3/movie/top_rated?api_key=9b0b141b44e2b1a77e4965a9ac513ca4
+
+// https://api.themoviedb.org/3/movie/372058?api_key=9b0b141b44e2b1a77e4965a9ac513ca4
