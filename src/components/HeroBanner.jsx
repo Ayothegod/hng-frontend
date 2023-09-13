@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "./Header";
 import useSWR from "swr";
 import tomato from "../assets/tomato.svg"
@@ -36,7 +35,7 @@ const HeroBanner = () => {
           <Header />
 
 
-          <div className="text-white mt-20 md:mt-32 px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col gap-4">
+          <div className="text-white mt-24 md:mt-32 px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col gap-4">
             <div>
               <p className="text-4xl font-mono">{response?.title}</p>
             </div>
