@@ -1,4 +1,6 @@
 import useSWR from "swr";
+import {Loader2} from "lucide-react"
+import HeroBanner from "@/components/HeroBanner";
 
 export default function Home() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -10,14 +12,18 @@ export default function Home() {
     `${BASE_URL}/top_rated?api_key=${API_KEY}`,
     fetcher
   );
-  console.log(data);
+  // console.log(data);
 
-  if (isLoading) return <div>loading...</div>
+  if (isLoading) return (
+    <main className="h-screen flex items-center justify-center">
+      <div className=" animate-spin"><Loader2 /></div>
+    </main>
+  )
 
   return (
     <>
-      <main>Hello builders
-        
+      <main>
+      <HeroBanner/>
       </main>
     </>
   );
