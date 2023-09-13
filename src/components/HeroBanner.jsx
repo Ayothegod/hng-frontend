@@ -6,8 +6,8 @@ const HeroBanner = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
-    // const bannerPath = "http://image.tmdb.org/t/p/w500"
-  const bannerPath = "https://image.tmdb.org/t/p/original"
+  // const bannerPath = "http://image.tmdb.org/t/p/w500"
+  const bannerPath = "https://image.tmdb.org/t/p/original";
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,6 +19,9 @@ const HeroBanner = () => {
     data?.results[Math.floor(Math.random() * data?.results.length)];
   console.log(response);
 
+  const rating = [78, 49, 90, 60, 70, 80, 90, 99, 56, 23, 45, 19, 89, 56];
+  const ratingValue = rating[Math.floor(Math.random() * rating.length)];
+
   return (
     <div>
       <div
@@ -26,8 +29,31 @@ const HeroBanner = () => {
         className="bg-[image:var(--image-url)] w-[100vw] h-[80vh] sm:h-[90vh] md:h-[100vh] object-cover object-center bg-no-repeat"
       >
         <div className="backdrop-brightness-50 h-full">
+          <Header />
 
-        <Header/>
+          <div className="text-white mt-32 px-4 sm:px-10 md:px-20 flex flex-col gap-4">
+            <div>
+              <p className="text-4xl font-mono">{response?.title}</p>
+            </div>
+            <div className="flex items-center gap-8">
+              <div className="flex gap-2">
+                <button className="bg-yellow-500 px-2 py-1 text-xs font-extrabold rounded-sm text-black">
+                  IMDb
+                </button>
+                <p className="text-sm">{ratingValue} / 100 </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button className="bg-red-600 rounded p-1">tomato</button>
+                <p className="text-sm">97 %</p>
+              </div>
+            </div>
+            <div><p>{response?.overview}</p></div>
+            <div>
+              <button className="bg-red-700 text-sm font-semibold px-4 rounded py-2">
+                WATCH TRAILER
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
