@@ -1,6 +1,10 @@
 import React from "react";
 import Header from "./Header";
 import useSWR from "swr";
+import tomato from "../assets/tomato.svg"
+import imdb from "../assets/imdb.svg"
+import Play from "../assets/Play.svg"
+import Image from "next/image";
 
 const HeroBanner = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -31,25 +35,26 @@ const HeroBanner = () => {
         <div className="backdrop-brightness-50 h-full">
           <Header />
 
-          <div className="text-white mt-32 px-4 sm:px-10 md:px-20 flex flex-col gap-4">
+          <div className="text-white mt-20 md:mt-32 px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col gap-4">
             <div>
               <p className="text-4xl font-mono">{response?.title}</p>
             </div>
             <div className="flex items-center gap-8">
               <div className="flex gap-2">
-                <button className="bg-yellow-500 px-2 py-1 text-xs font-extrabold rounded-sm text-black">
-                  IMDb
-                </button>
+              <Image src={imdb} alt="imdb"/>
                 <p className="text-sm">{ratingValue} / 100 </p>
               </div>
               <div className="flex items-center gap-2">
-                <button className="bg-red-600 rounded p-1">tomato</button>
+                <Image src={tomato} alt="tomato"/>
+                
+                
                 <p className="text-sm">97 %</p>
               </div>
             </div>
             <div><p>{response?.overview}</p></div>
             <div>
-              <button className="bg-red-700 text-sm font-semibold px-4 rounded py-2">
+              <button className="bg-red-700 text-xs md:text-sm font-semibold px-4 rounded py-2 flex items-center gap-1">
+                <Image src={Play} alt="play"/>
                 WATCH TRAILER
               </button>
             </div>
