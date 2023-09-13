@@ -1,6 +1,8 @@
 import useSWR from "swr";
 import {Loader2} from "lucide-react"
 import HeroBanner from "@/components/HeroBanner";
+import Featured from "@/components/Featured";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -26,6 +28,8 @@ export default function Home() {
     <>
       <main>
       <HeroBanner/>
+      <Featured/>
+      <Footer/>
       </main>
     </>
   );
