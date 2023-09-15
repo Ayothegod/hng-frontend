@@ -1,6 +1,7 @@
 import Image from "next/image";
 import imdb from "../assets/imdb.svg"
 import tomato from "../assets/tomato.svg"
+import Link from "next/link";
 // src\assets\imdb.svg
 
 const MovieCard = ({ movie }) => {
@@ -39,6 +40,7 @@ const MovieCard = ({ movie }) => {
         height={300}
         width={300}
       />
+      <Link href={`/movies/${movie?.id}`}>
       <div className="mt-2 flex flex-col gap-2">
         <p className="text-slate-500 font-medium">USA, {year}</p>
         <p className="font-bold text-xl">{movie?.title}</p>
@@ -60,6 +62,7 @@ const MovieCard = ({ movie }) => {
           }
         </div>
       </div>
+      </Link>
     </div>
   );
 };
