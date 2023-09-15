@@ -12,7 +12,6 @@ const Featured = () => {
     `${BASE_URL}/top_rated?api_key=${API_KEY}`,
     fetcher
   );
-  // console.log(data && data.results.slice(0,10));
 
   return (
     <div className="mt-10 md:mt-16 mx-6 sm:mx-16 md:mx-20">
