@@ -36,15 +36,15 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className="relative">
+      <Link href={`/movies/${movie?.id}`}>
       <Image
         src={`${bannerPath}/${movie?.poster_path}`}
         alt={movie?.title}
         height={300}
         width={300}
         />
-      {heart ? <Image src={favorite} alt="imdb" className="md:w-12 absolute top-2 right-4 sm:right-2" /> : <Heart className="md:w-12 absolute top-2 right-4 sm:right-2 bg-red-600 rounded-full w-8 h-8 p-2 text-white" />}
+      {heart ? <Image src={favorite} alt="imdb" className=" absolute top-2 right-4 sm:right-2" /> : <Heart className=" absolute top-2 right-4 sm:right-2 bg-red-600 rounded-full p-2 text-white" />}
 
-      <Link href={`/movies/${movie?.id}`}>
         <div className="mt-2 flex flex-col gap-2">
           <p className="text-slate-500 font-medium">USA, {year}</p>
           <p className="font-bold text-xl">{movie?.title}</p>
