@@ -31,7 +31,7 @@ const MoviePage = () => {
 
   return (
     <div>
-      <div className="w-screen">
+      <div className="w-full p-2">
         <Body data={data} />
       </div>
     </div>
