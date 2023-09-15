@@ -26,8 +26,9 @@ export default function Home() {
   return (
     <>
       <main>
+        Hello
       <HeroBanner/>
-      <Featured/>
+      {/* <Featured/> */}
       <Footer/>
       </main>
     </>

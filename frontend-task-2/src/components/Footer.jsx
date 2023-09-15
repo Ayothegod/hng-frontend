@@ -14,7 +14,7 @@ const Footer = () => {
         <Image src={twitter} alt="facebook"/>
         <Image src={youtube} alt="facebook"/>
       </div>
-      <div className="flex items-center gap-12 text-sm font-semibold">
+      <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-12 text-sm font-semibold">
         <p>Conditions of Use</p>
         <p>Privacy & Policy</p>
         <p>Press Room</p>
