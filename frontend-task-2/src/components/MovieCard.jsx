@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const MovieCard = ({ movie }) => {
   const bannerPath = "http://image.tmdb.org/t/p/w500";
-  console.log(movie);
+  // console.log(movie);
 
 
 //   Action          28

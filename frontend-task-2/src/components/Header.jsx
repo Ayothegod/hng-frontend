@@ -1,9 +1,9 @@
 import React from 'react'
 import Logo from "../assets/Logo.svg"
-import menu from "../assets/menu.svg"
+import menu from "../assets/Menu.svg"
 import Image from 'next/image'
 import { Search} from "lucide-react"
-
+// ../assets/menu.svg
 const Header = () => {
 
   return (
