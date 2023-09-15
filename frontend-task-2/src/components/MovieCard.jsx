@@ -50,11 +50,11 @@ const MovieCard = ({ movie }) => {
           <p className="font-bold text-xl">{movie?.title}</p>
           <div className="flex justify-between">
             <div className="flex text-slate-600 font-medium gap-2">
-              <Image src={imdb} alt="imdb" className="md:w-12" />
+              <Image src={imdb} alt="imdb" className="" />
               <p>{movie?.vote_average * 10}.0 / 100</p>
             </div>
             <div className="flex mr-4 sm:mr-0 gap-2 text-slate-600 font-medium">
-              <Image src={tomato} alt="imdb" className="md:w-12" />
+              <Image src={tomato} alt="imdb" className="" />
               <p>{popularity}%</p>
             </div>
           </div>
