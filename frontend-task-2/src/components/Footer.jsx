@@ -20,7 +20,7 @@ const Footer = () => {
         <p>Press Room</p>
       </div>
       <div className="text-sm font-medium flex text-slate-500 items-center">
-      <Copyright className="h-3" /> 2021 MovieBox by Ayomide Adebisi
+      <Copyright className="h-3" /> 2021 MovieBox by Ayomide Adebisi.
       </div>
     </div>
   );
