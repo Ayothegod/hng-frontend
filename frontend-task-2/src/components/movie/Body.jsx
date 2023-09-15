@@ -9,7 +9,6 @@ import Link from "next/link";
 const Body = ({ data }) => {
   const bannerPath = "https://image.tmdb.org/t/p/original";
   const url = bannerPath + data?.backdrop_path;
-  console.log(data);
 
   return (
     <div>
@@ -40,11 +39,19 @@ const Body = ({ data }) => {
         {/* top row */}
         <div className="">
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-            <p className="text-2xl font-bold">{data?.title} . </p>
-            <p className="text-lg font-medium text-slate-500">
-              Runtime (in minutes): {data?.runtime} .{" "}
+            <p className="text-2xl font-bold" data-testid="movie-title">
+              {data?.title} .{" "}
             </p>
-            <p className="text-lg font-medium text-slate-500">
+            <p
+              className="text-lg font-medium text-slate-500"
+              data-testid="movie-runtime"
+            >
+              Runtime (in minutes): {data?.runtime} .
+            </p>
+            <p
+              className="text-lg font-medium text-slate-500"
+              data-testid="movie-release-date"
+            >
               Release Date in (UTC): <span>{data?.release_date} . </span>
             </p>
           </div>
@@ -52,7 +59,10 @@ const Body = ({ data }) => {
 
         {/* overview and two buttons */}
         <div className="mt-4 flex flex-col md:flex-row justify-between gap-4">
-          <p className="text-sm md:text-base font-medium text-slate-900 md:max-w-[80%]">
+          <p
+            className="text-sm md:text-base font-medium text-slate-900 md:max-w-[80%]"
+            data-testid="movie-overview"
+          >
             {data?.overview}
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-1 gap-4">

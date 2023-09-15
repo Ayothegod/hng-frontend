@@ -12,7 +12,7 @@ export default function Home() {
   const { data, error, isLoading } = useSWR(
     `${BASE_URL}/top_rated?api_key=${API_KEY}`,
     fetcher
-  );
+  )
 
   if (isLoading) return (
     <main className="h-screen flex items-center justify-center">
