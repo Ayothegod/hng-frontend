@@ -16,7 +16,6 @@ export default function Home() {
     `${BASE_URL}/top_rated?api_key=${API_KEY}`,
     fetcher
   );
-  // console.log(data);
 
   if (isLoading) return (
     <main className="h-screen flex items-center justify-center">
