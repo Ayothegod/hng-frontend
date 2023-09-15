@@ -21,6 +21,7 @@ const HeroBanner = () => {
   const response =
     data?.results[Math.floor(Math.random() * data?.results.length)];
 
+  const popularity = Math.floor(response?.popularity)
   const rating = [78, 49, 90, 60, 70, 80, 90, 99, 56, 23, 45, 19, 89, 56];
   const ratingValue = rating[Math.floor(Math.random() * rating.length)];
 
@@ -40,12 +41,12 @@ const HeroBanner = () => {
             <div className="flex items-center gap-8">
               <div className="flex gap-2">
                 <Image src={imdb} alt="imdb" />
-                <p className="text-sm">{ratingValue} / 100 </p>
+                <p className="text-sm">{popularity} / 100 </p>
               </div>
               <div className="flex items-center gap-2">
                 <Image src={tomato} alt="tomato" />
 
-                <p className="text-sm">97 %</p>
+                <p className="text-sm">{response?.vote_average  * 10} %</p>
               </div>
             </div>
             <div className="md:w-1/2">

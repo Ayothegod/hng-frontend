@@ -9,8 +9,9 @@ const MovieCard = ({ movie }) => {
   const year = new Date(movie?.release_date).getFullYear()
   console.log(movie);
 
-  const rating = [78, 49, 90, 60, 70, 80, 90, 99, 56,91,79, 60, 89, 56];
-  const ratingValue = rating[Math.floor(Math.random() * rating.length)];
+  const popularity = Math.floor(movie?.popularity)
+  // const rating = [78, 49, 90, 60, 70, 80, 90, 99, 56,91,79, 60, 89, 56];
+  // const ratingValue = rating[Math.floor(Math.random() * rating.length)];
 
 //   Action          28
 //   Adventure       12
@@ -51,7 +52,7 @@ const MovieCard = ({ movie }) => {
           </div>
           <div className="flex mr-4 sm:mr-0 gap-2 text-slate-600 font-medium">
           <Image src={tomato} alt="imdb" className="md:w-12"/>
-            <p>{ratingValue}%</p>
+            <p>{popularity}%</p>
           </div>
         </div>
         <div className="flex text-slate-500 text-sm gap-2">
