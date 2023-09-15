@@ -27,8 +27,8 @@ export default function Home() {
     <>
       <main>
       <HeroBanner/>
-      {/* <Featured/>
-      <Footer/> */}
+      <Featured/>
+      <Footer/>
       </main>
     </>
   );

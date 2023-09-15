@@ -3,9 +3,8 @@ import Logo from "../assets/Logo.svg"
 import menu from "../assets/Menu.svg"
 import Image from 'next/image'
 import { Search} from "lucide-react"
-// ../assets/menu.svg
-const Header = () => {
 
+const Header = () => {
   return (
     <div className='pt-4 px-2 sm:px-6 md:px-10 lg:px-20 w-full flex items-center text-white justify-between'>
         <Image src={Logo} alt='Logo'/>
@@ -20,6 +19,5 @@ const Header = () => {
     </div>
   )
 }
-// absolute top-2 px-2 sm:px-6 md:px-10 lg:px-20 w-full flex items-center text-white justify-between
 
 export default Header

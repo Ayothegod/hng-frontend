@@ -8,15 +8,14 @@ import Image from "next/image";
 const HeroBanner = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-
   const bannerPath = "https://image.tmdb.org/t/p/original";
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
   const { data, error, isLoading } = useSWR(
     `${BASE_URL}/top_rated?api_key=${API_KEY}`,
     fetcher
   );
+  
   const response =
     data?.results[Math.floor(Math.random() * data?.results.length)];
   const popularity = Math.floor(response?.popularity);
