@@ -1,7 +1,7 @@
 
 const Sidebar = () => {
   return (
-    <div className="md:w-[14rem]">Sidebar</div>
+    <div className="hidden md:block md:w-[14rem]">Sidebar</div>
   )
 }
 
