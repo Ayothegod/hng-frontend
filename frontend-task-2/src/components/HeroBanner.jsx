@@ -29,7 +29,7 @@ const HeroBanner = () => {
     <div>
       <div
         style={{ "--image-url": `url(${bannerPath}/${response?.poster_path})` }}
-        className="bg-[image:var(--image-url)] w-full h-[80vh] sm:h-[90vh] md:h-[100vh] object-cover object-center"
+        className="bg-[image:var(--image-url)] w-full h-[80vh] sm:h-[90vh] md:h-[100vh] object-cover object-no-repeat no-repeat object-center"
       >
     <div className="backdrop-brightness-50 h-full">
           <Header />
