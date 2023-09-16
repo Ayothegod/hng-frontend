@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
   const popularity = Math.floor(movie?.popularity);
 
   const [heart, setHeart] = useState(true);
-  console.log("User");
+  // console.log("User");
 
   return (
     <div className="relative" data-testid="movie-card">
