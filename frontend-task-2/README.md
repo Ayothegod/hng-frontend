@@ -12,7 +12,13 @@ Please follow the instructions below:
 git https://github.com/Ayothegod/hng-frontend.git
 ```
 
-2. Change directory
+2. Enter the repo directory
+
+```bash
+cd frontend-task-2
+```
+
+2. Change directory to the second task directory
 
 ```bash
 cd frontend-task-2
