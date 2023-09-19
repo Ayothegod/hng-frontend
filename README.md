@@ -13,3 +13,7 @@ Stage One Task: Frontend Page Creation with Specific Elements Objective: Develop
 ## Frontend Stage 2 Task
 
 Create a movie discovery web application that allows users to search for movies, view details about them, and save their favorite movies. You’ll be consuming data from the TMDB API.
+
+## Frontend Stage 3 Task
+
+
