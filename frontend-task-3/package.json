@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.23.5",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "immutability-helper": "^3.1.1",

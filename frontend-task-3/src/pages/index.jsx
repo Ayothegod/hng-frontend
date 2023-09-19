@@ -3,6 +3,7 @@ import { imageData } from "@/lib/imageData";
 import Image from "next/image";
 import placehold from "../assets/placeholder.png";
 import ImageBox from "@/components/ImageBox";
+import Signin from "@/components/Signin";
 
 export default function Home() {
   // console.log(imageData[0].imgUrl);
@@ -12,18 +13,7 @@ export default function Home() {
   if (user) {
     return (
       <main className="h-screen bg-gray-100">
-        <div className="flex items-center justify-center h-full">
-          <div className="flex flex-col gap-4 px-4">
-            <p className="font-semibold text-2xl">Sign-in to access the gallery.</p>
-
-            <form className="space-y-4">
-              <input type="text" placeholder="email address..." className="w-full bg-transparent border-2 border-slate-800 rounded px-2 py-2 md:py-2 md:px-4 focus:ring" />
-              <input type="password" placeholder="password..." className="w-full bg-transparent border-2 border-slate-800 rounded px-2 py-2 md:py-2 md:px-4 focus:ring"/>
-
-              <button className="w-full bg-slate-800 border-none rounded px-2 py-2 md:py-2 md:px-4 text-white font-medium text-lg">get access</button>
-            </form>
-          </div>
-        </div>
+        <Signin/>
       </main>
     );
   }
