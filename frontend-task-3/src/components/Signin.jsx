@@ -3,7 +3,6 @@ import { useSignIn } from "@clerk/nextjs";
 const Signin = () => {
   const { isLoaded, signIn } = useSignIn();
 
-  
   if (!isLoaded) {
     // Handle loading state
     return null;
@@ -13,6 +12,8 @@ const Signin = () => {
       <div className="flex flex-col gap-4 px-4">
         <p className="font-semibold text-2xl">Sign-in to access the gallery.</p>
 
+        <p>The current sign in attempt status is {signIn.status}</p>
+        
         <form className="space-y-4">
           <input
             type="text"
