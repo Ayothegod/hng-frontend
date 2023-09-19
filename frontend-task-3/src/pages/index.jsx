@@ -1,5 +1,7 @@
 // import Image from "next/image";
 
+import Button from "@/components/ui/Button";
+
 export default function Home() {
   const user = false;
 
@@ -22,17 +24,21 @@ export default function Home() {
         </header>
 
         {/* search*/}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2 mt-4 ">
           <div className="space-y-2">
-            <p className="text-slate-500 font-medium">Search by tags</p>
+            <p className="text-slate-500 font-medium">Filter by tags</p>
 
-            <div className="">
-            <button className="bg-slate-800 text-white font-semibold rounded py-1 px-2 md:py-2 md:px-6 md:text-lg">water</button>
+            <div className="flex gap-4">
+            <Button>water</Button>
+            <Button>wildlife</Button>
+            <Button>space</Button>
+            <Button>mountain</Button>
             </div>
 
           </div>
-          <div>
-            <input type="text" placeholder="Search images by tag" className="bg-transparent border border-slate-800 rounded px-4 py-2 md:py-2 md:px-6" />
+
+          <div className="">
+            <input type="text" placeholder="Search images by tag" className="bg-transparent border border-slate-800 rounded px-4 py-2 md:py-2 md:px-6 w-full sm:w-96" />
           </div>
         </div>
       </main>
