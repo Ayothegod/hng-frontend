@@ -4,13 +4,16 @@ import Image from "next/image";
 import placehold from "../assets/placeholder.png";
 import ImageBox from "@/components/ImageBox";
 import Signin from "@/components/Signin";
+import {  SignOutButton, useUser, useAuth } from "@clerk/nextjs";
 
 export default function Home() {
-  // console.log(imageData[0].imgUrl);
-  const user = false;
-  // const url = imageData[5].imgUrl;
+    const {  isSignedIn, user } = useUser()
+  const {  userId, sessionId, getToken } = useAuth()
 
-  if (user) {
+    // console.log(userId, sessionId);
+    // console.log(isSignedIn, user);
+
+  if (!isSignedIn) {
     return (
       <main className="h-screen bg-gray-100">
         <Signin/>
@@ -28,8 +31,9 @@ export default function Home() {
             {/* {!url ? "loading" : <Image src={url}   alt="user image" placeholder="blur"
             className="h-20 w-20 rounded"/>} */}
             <p className="font-semibold text-slate-800 underline text-lg">
-              {user ? user?.email : "Sign in"}
+              {user ? user?.primaryEmailAddress?.emailAddress : "Sign in"}
             </p>
+            <SignOutButton/>
           </div>
         </header>
 
@@ -57,11 +61,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
+        {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
           {imageData.slice(0, 10).map((data) => (
             <ImageBox key={data.id} data={data} />
           ))}
-        </div>
+        </div> */}
       </main>
     </main>
   );
