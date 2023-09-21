@@ -56,7 +56,7 @@ const Search = () => {
               go back
             </p>
           </Link>
-          <p className="text-lg font-medium font-sans">Search Results</p>
+          <p className="text-lg font-medium font-sans">Search Results for {searchData}</p>
         </div>
 
         {displayData.length < 1 && (
