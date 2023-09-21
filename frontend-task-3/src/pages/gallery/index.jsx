@@ -78,7 +78,7 @@ const Gallery = () => {
               placeholder="Search images by tag"
               className="bg-transparent border border-slate-800 rounded px-4 py-2 md:py-2 md:px-6 w-full sm:w-96 focus:ring"
             />
-            <button className="bg-slate-800 text-white font-semibold rounded py-1 px-2 md:py-1 md:px-6 md:text-lg hover:bg-slate-600 flex items-center justify-center" onClick={searchGallery}>
+            <button className="bg-slate-800 text-white font-semibold rounded py-1 px-2 md:py-1 md:px-6 md:text-lg w-full md:w-60 hover:bg-slate-600 flex items-center justify-center" onClick={searchGallery}>
               {searchLoading ? <Loader2/> : "Search Gallery"}
             </button>
           </div>
