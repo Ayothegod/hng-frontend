@@ -5,28 +5,56 @@ import placehold from "../assets/placeholder.png";
 import ImageBox from "@/components/ImageBox";
 import { supabaseClient } from "@/lib/supabase";
 import { useEffect, useState } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import update from "immutability-helper";
+import { TouchBackend } from "react-dnd-touch-backend";
 
 const Gallery = () => {
-  const [user, setUser] = useState({})
-  const [displayData, setDisplayData] = useState([imageData])
+  const [user, setUser] = useState({});
+  const [displayData, setDisplayData] = useState([...imageData]);
+  const [touchDevice, setTouchDevice] = useState(false)
   useEffect(() => {
     const user = async () => {
-      const {data: { user },} = await supabaseClient.auth.getUser();
-      setUser(user)
+      const {
+        data: { user },
+      } = await supabaseClient.auth.getUser();
+      setUser(user);
     };
-    user()
+    user();
   }, []);
 
   const signout = async () => {
     const { error: ErrorData } = await supabaseClient.auth.signOut();
     console.log(ErrorData);
   };
-  console.log(displayData);
-  const tagged = "forest"
+  useEffect(() => {
+    // Check for touch support on the client side
+    if ('ontouchstart' in window) {
+      setTouchDevice(true);
+    }
+  }, []);
+
+  const backendForDND = touchDevice ? TouchBackend : HTML5Backend;
   // const filtered = displayData.filter(data => data.tags?.includes(tagged))
   // console.log(filtered);
   // setDisplayData(filtered)
   // console.log(data);
+  // const imagesArray = imageData.map(data => data.)
+
+  const moveImage = (dragIndex, hoverIndex) => {
+    // Get the dragged element
+    const draggedImage = displayData[dragIndex];
+
+    setDisplayData(
+      update(displayData, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, draggedImage],
+        ],
+      })
+    );
+  };
 
   return (
     <main className="min-h-screen bg-gray-100">
@@ -72,11 +100,18 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
-        {imageData.slice(0, 10).map((data) => (
-          <ImageBox key={data.id} data={data} />
-        ))}
-      </div> */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
+          {displayData.slice(0, 10).map((data, index) => (
+            <DndProvider backend={backendForDND} key={index}>
+              <ImageBox
+                key={data.id}
+                data={data}
+                index={index}
+                moveImage={moveImage}
+              />
+            </DndProvider>
+          ))}
+        </div>
       </main>
     </main>
   );
