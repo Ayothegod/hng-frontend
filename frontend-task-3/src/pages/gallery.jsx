@@ -100,7 +100,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
           {displayData.slice(0, 10).map((data, index) => (
             <DndProvider backend={backendForDND} key={index}>
               <ImageBox
@@ -111,8 +111,8 @@ const Gallery = () => {
               />
             </DndProvider>
           ))}
-        </div> */}
-        {touchDevice && (
+        </div>
+        {/* {touchDevice && (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
             {displayData.slice(0, 10).map((data, index) => (
               <DndProvider backend={TouchBackend} key={index}>
@@ -140,7 +140,7 @@ const Gallery = () => {
               </DndProvider>
             ))}
           </div>
-        )}
+        )} */}
       </main>
     </main>
   );
