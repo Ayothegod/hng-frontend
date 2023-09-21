@@ -6,7 +6,6 @@ import { useDrag, useDrop } from "react-dnd";
 const type = "Image";
 
 const ImageBox = ({ data, index, moveImage }) => {
-  // console.log(data);
   const mappedTag = data.tags.map((tag) => {
     return tag;
   });
@@ -44,10 +43,10 @@ const ImageBox = ({ data, index, moveImage }) => {
     // data of the item to be available to the drop methods
     item: { id: data?.id, index },
     // method to collect additional data for drop handling like whether is currently being dragged
-    options: {
-      // Set the delayTouchStart option to 500 milliseconds (adjust as needed)
-      delayTouchStart: 5000,
-    },
+    // options: {
+    //   // Set the delayTouchStart option to 500 milliseconds (adjust as needed)
+    //   delayTouchStart: 2000,
+    // },
     collect: (monitor) => {
       return {
         isDragging: monitor.isDragging(),
@@ -75,7 +74,7 @@ const ImageBox = ({ data, index, moveImage }) => {
 
   drag(drop(ref));
   return (
-    <div ref={ref} {...drag(ref)} style={{ opacity: isDragging ? 0 : 1, cursor: isDragging ? 'grabbing' : 'grab', }} className="relative">
+    <div ref={ref} style={{ opacity: isDragging ? 0 : 1, cursor: isDragging ? 'grabbing' : 'grab', }} className="relative">
       <Image
         src={data ? data?.imgUrl : placehold}
         alt={data?.alt}
@@ -84,7 +83,7 @@ const ImageBox = ({ data, index, moveImage }) => {
       />
       <div className="absolute top-2 right-2 flex gap-2">
         {data.tags.map((tag) => (
-          <p className="text-white font-medium font-mono bg-slate-800 rounded py-1 px-2">{tag}</p>
+          <p className="text-white font-medium font-mono bg-slate-800 rounded py-1 px-2" key={tag}>{tag}</p>
         ))}
       </div>
     </div>
