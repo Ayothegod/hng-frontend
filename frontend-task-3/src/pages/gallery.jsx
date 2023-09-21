@@ -3,8 +3,25 @@ import { imageData } from "@/lib/imageData";
 import Image from "next/image";
 import placehold from "../assets/placeholder.png";
 import ImageBox from "@/components/ImageBox";
+import { supabaseClient } from "@/lib/supabase";
+import { useEffect, useState } from "react";
 
 const Gallery = () => {
+  const [user, setUser] = useState({})
+  useEffect(() => {
+    const user = async () => {
+      const {data: { user },} = await supabaseClient.auth.getUser();
+      setUser(user)
+      console.log(user);
+    };
+    user()
+  }, []);
+
+  const signout = async () => {
+    const { error: ErrorData } = await supabaseClient.auth.signOut();
+    console.log(ErrorData);
+  };
+
   return (
     <main className="min-h-screen bg-gray-100">
       <main className="container max-w-6xl mx-auto px-4 md:px-8">
@@ -12,14 +29,18 @@ const Gallery = () => {
         <header className="py-2 flex items-center justify-between">
           <p className="font-mono text-2xl md:text-4xl">Image Gallery</p>
           <div>
-            {/* {!url ? "loading" : <Image src={url}   alt="user image" placeholder="blur"
-          className="h-20 w-20 rounded"/>} */}
             <p className="font-semibold text-slate-800 underline text-lg">
-              {user ? user?.primaryEmailAddress?.emailAddress : "Sign in"}
+              {user ? user?.email : "Sign in"}
             </p>
-            <SignOutButton />
           </div>
         </header>
+
+        {/* <button
+        className="bg-purple-600 text-white p-2 rounded"
+        onClick={signout}
+      >
+        logout
+      </button> */}
 
         {/* search*/}
         <div className="flex flex-col gap-2 mt-4 ">

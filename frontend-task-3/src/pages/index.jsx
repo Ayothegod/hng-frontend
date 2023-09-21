@@ -2,6 +2,8 @@ import Signin from "@/components/Signin";
 
 export default function Home() {
   return (
-    <Signin/>
+    <main className="h-screen">
+      <Signin/>
+    </main>
   );
 }
