@@ -10,6 +10,7 @@ import { TouchBackend } from "react-dnd-touch-backend";
 import { useSearchContext } from "@/lib/seachStore";
 import { useRouter } from "next/router";
 import Header from "@/components/Header";
+import { Loader2 } from "lucide-react";
 
 const Gallery = () => {
   const router = useRouter();
@@ -17,6 +18,7 @@ const Gallery = () => {
   const [search, setSearch] = useState("");
   const [displayData, setDisplayData] = useState([...imageData]);
   const [touchDevice, setTouchDevice] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
 
   // const signout = async () => {
   //   const { error: ErrorData } = await supabaseClient.auth.signOut();
@@ -42,8 +44,8 @@ const Gallery = () => {
   };
 
   const searchGallery = () => {
+    setSearchLoading(true)
     setSearchData(search);
-    console.log("hello");
     router.push("/gallery/search");
   };
 
@@ -76,9 +78,9 @@ const Gallery = () => {
               placeholder="Search images by tag"
               className="bg-transparent border border-slate-800 rounded px-4 py-2 md:py-2 md:px-6 w-full sm:w-96 focus:ring"
             />
-            <Button>
-              <span onClick={searchGallery}>Search Gallery</span>
-            </Button>
+            <button className="bg-slate-800 text-white font-semibold rounded py-1 px-2 md:py-1 md:px-6 md:text-lg hover:bg-slate-600 flex items-center justify-center" onClick={searchGallery}>
+              {searchLoading ? <Loader2/> : "Search Gallery"}
+            </button>
           </div>
         </div>
 
