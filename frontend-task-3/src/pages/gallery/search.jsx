@@ -48,7 +48,7 @@ const Search = () => {
   };
   return (
     <main className="min-h-screen bg-gray-100">
-      <main className="container max-w-6xl mx-auto px-4 md:px-8 pb-8">
+      <main className="container max-w-6xl mx-auto px-8 md:px-8 pb-8">
         <Header />
         <div className="my-4 flex items-center gap-4">
           <Link href="/gallery" className="cursor-pointer">
@@ -69,7 +69,7 @@ const Search = () => {
         )}
 
         {touchDevice && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
             {displayData.slice(0, 19).map((data, index) => (
               <DndProvider backend={TouchBackend} key={index}>
                 <ImageBox
@@ -84,7 +84,7 @@ const Search = () => {
         )}
 
         {!touchDevice && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
             {displayData.slice(0, 19).map((data, index) => (
               <DndProvider backend={HTML5Backend} key={index}>
                 <ImageBox

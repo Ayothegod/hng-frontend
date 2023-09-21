@@ -1,12 +1,15 @@
 import Image from "next/image";
 import placehold from "../assets/placeholder.png";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { useDrag, useDrop } from "react-dnd";
 const type = "Image";
 
 const ImageBox = ({ data, index, moveImage }) => {
-  // console.log(data)
+  // console.log(data);
+  const mappedTag = data.tags.map((tag) => {
+    return tag;
+  });
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -41,6 +44,10 @@ const ImageBox = ({ data, index, moveImage }) => {
     // data of the item to be available to the drop methods
     item: { id: data?.id, index },
     // method to collect additional data for drop handling like whether is currently being dragged
+    options: {
+      // Set the delayTouchStart option to 500 milliseconds (adjust as needed)
+      delayTouchStart: 5000,
+    },
     collect: (monitor) => {
       return {
         isDragging: monitor.isDragging(),
@@ -48,15 +55,38 @@ const ImageBox = ({ data, index, moveImage }) => {
     },
   }));
 
+  // const handleTouchStart = (e) => {
+  //   if (!isDragging) {
+  //     // If not currently dragging, allow drag to start
+  //     drag()
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const element = ref.current;
+
+  //   if (element) {
+  //     element.addEventListener('touchstart', handleTouchStart);
+  //     return () => {
+  //       element.removeEventListener('touchstart', handleTouchStart);
+  //     };
+  //   }
+  // }, [ref, handleTouchStart]);
+
   drag(drop(ref));
   return (
-    <div ref={ref} style={{ opacity: isDragging ? 0 : 1 }}>
+    <div ref={ref} {...drag(ref)} style={{ opacity: isDragging ? 0 : 1, cursor: isDragging ? 'grabbing' : 'grab', }} className="relative">
       <Image
         src={data ? data?.imgUrl : placehold}
         alt={data?.alt}
         placeholder="blur"
         className="h-48 w-full rounded object-cover"
       />
+      <div className="absolute top-2 right-2 flex gap-2">
+        {data.tags.map((tag) => (
+          <p className="text-white font-medium font-mono bg-slate-800 rounded py-1 px-2">{tag}</p>
+        ))}
+      </div>
     </div>
   );
 };
