@@ -8,11 +8,11 @@ import { useEffect, useState } from "react";
 
 const Gallery = () => {
   const [user, setUser] = useState({})
+  const [displayData, setDisplayData] = useState([imageData])
   useEffect(() => {
     const user = async () => {
       const {data: { user },} = await supabaseClient.auth.getUser();
       setUser(user)
-      console.log(user);
     };
     user()
   }, []);
@@ -21,6 +21,12 @@ const Gallery = () => {
     const { error: ErrorData } = await supabaseClient.auth.signOut();
     console.log(ErrorData);
   };
+  console.log(displayData);
+  const tagged = "forest"
+  // const filtered = displayData.filter(data => data.tags?.includes(tagged))
+  // console.log(filtered);
+  // setDisplayData(filtered)
+  // console.log(data);
 
   return (
     <main className="min-h-screen bg-gray-100">
